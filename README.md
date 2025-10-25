@@ -1,73 +1,66 @@
-# React + TypeScript + Vite
+# 🧠 Computer Vision Edge Detection Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📘 Project Overview
+This project is an **interactive web-based edge detection tool** that allows users to visually experiment with popular image processing algorithms using **OpenCV.js** in a **Reactjs** app.  
+Users can upload an image, select an edge detection algorithm (Sobel, Laplacian, or Canny), adjust parameters dynamically, and instantly view the effects.
 
-Currently, two official plugins are available:
+The application is designed to provide an **educational and visual understanding** of how edge detection algorithms work and how their parameters affect results.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🎯 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🖼️ Image Upload
+- Upload images directly from your local device.  
+- Supports common formats: **JPG**, **PNG**, **BMP**.  
+- Automatically displays the uploaded image side-by-side with the output.
 
-## Expanding the ESLint configuration
+### 🧩 Algorithms Supported
+1. **Sobel Operator**
+   - Detects gradients in X, Y, or both directions.  
+   - Adjustable **kernel size**.
+2. **Laplacian Operator**
+   - Detects intensity changes using the Laplacian of the image.  
+   - Adjustable **kernel size**.
+3. **Canny Edge Detection**
+   - Multi-stage algorithm using Gaussian blur + gradient detection.  
+   - Adjustable **lower/upper thresholds**, **kernel size**, and **sigma**.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### ⚙️ Parameter Controls
+- Real-time interactive sliders and dropdowns for:
+  - Canny: `lower`, `upper`, `ksize`, `sigma`
+  - Sobel: `ksize`, `direction (X, Y, Both)`
+  - Laplacian: `ksize`
+- Parameters update live or via an **“Apply” button**.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 🖥️ User Interface
+- Clean, minimal UI using **shadcn/ui**, **Lucide React icons**, and **Tailwind CSS**.  
+- Side-by-side display:
+  - **Left:** Original Image  
+  - **Right:** Processed Image  
+- Includes buttons for:
+  - Uploading Image  
+  - Applying Algorithm  
+  - Clearing Canvas  
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🚀 Tech Stack
+| Category | Tools Used |
+|-----------|-------------|
+| Frontend Framework | React 19 |
+| Styling | Tailwind CSS + shadcn/ui |
+| Image Processing | OpenCV.js |
+| Icons | Lucide React |
+| Package Manager | pnpm |
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🧠 How to Run the Application
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### 1. Install NodeJS (atleast NodeJS v24) 
+### 2. Install all the dependencies
+```bash npm i pnpm ```
+```bash pnpm i ```
+### 3. Run the application
+
