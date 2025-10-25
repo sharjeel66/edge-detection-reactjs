@@ -58,9 +58,90 @@ The application is designed to provide an **educational and visual understanding
 
 ## 🧠 How to Run the Application
 
-### 1. Install NodeJS (atleast NodeJS v24) 
+### 1. Install NodeJS (v22 or later)
+Make sure you have Node.js installed on your system.
+
 ### 2. Install all the dependencies
-```bash npm i pnpm ```
-```bash pnpm i ```
+```bash
+npm i pnpm
+pnpm i
+```
+
 ### 3. Run the application
+```bash
+pnpm dev
+```
+
+### 4. Open in browser
+Visit: [http://localhost:3000](http://localhost:3000)
+
+---
+
+## 📂 Folder Structure
+
+```
+edge-detection-nextjs/
+│
+├── public/                # Static assets (sample images, icons)
+├── src/
+│   ├── components/
+│   │   ├── EdgeDetection.tsx
+│   │   ├── Controls.tsx
+│   │   └── ImageDisplay.tsx
+│   ├── hooks/
+│   │   └── useOpenCV.ts
+│   ├── types/
+│   │   └── types.ts
+│   └── app/
+│       └── page.tsx
+│
+├── package.json
+└── README.md
+```
+
+---
+
+## 🧮 Algorithms Implemented
+
+### 🔹 Canny Edge Detection
+Performs:
+1. Gaussian smoothing  
+2. Gradient computation  
+3. Non-maximum suppression  
+4. Hysteresis thresholding  
+
+**Parameters:**  
+- Lower Threshold  
+- Upper Threshold  
+- Kernel Size  
+- Sigma (for Gaussian blur)
+
+---
+
+### 🔹 Sobel Operator
+Computes gradients along **X**, **Y**, or **Both** directions and combines them to visualize edges.
+
+**Parameters:**  
+- Kernel Size  
+- Direction (X, Y, Both)
+
+---
+
+### 🔹 Laplacian Operator
+Uses the second derivative of the image to detect rapid intensity changes.
+
+**Parameters:**  
+- Kernel Size
+
+---
+
+## 🧑‍💻 Developer Information
+
+**Sharjeel Ahmed**  
+**Roll No:** 0022-BSCS-22  
+**Government College University, Lahore**
+
+---
+
+
 
