@@ -62,6 +62,7 @@ The application is designed to provide an **educational and visual understanding
 Make sure you have Node.js installed on your system.
 
 ### 2. Install pnpm
+After cloning this repository, open a terminal window in the newly created directory and run the following commands:
 ```bash
 npm i pnpm
 ```
