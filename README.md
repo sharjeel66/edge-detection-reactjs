@@ -61,18 +61,22 @@ The application is designed to provide an **educational and visual understanding
 ### 1. Install NodeJS (v22 or later)
 Make sure you have Node.js installed on your system.
 
-### 2. Install all the dependencies
+### 2. Install pnpm
 ```bash
 npm i pnpm
+```
+
+### 3. Install all the dependencies
+```bash
 pnpm i
 ```
 
-### 3. Run the application
+### 4. Run the application
 ```bash
-pnpm dev
+pnpm run dev
 ```
 
-### 4. Open in browser
+### 5. Open in browser
 Visit: [http://localhost:3000](http://localhost:3000)
 
 ---
