@@ -15,23 +15,7 @@ The application is designed to provide an **educational and visual understanding
 - Supports common formats: **JPG**, **PNG**, **BMP**.  
 - Automatically displays the uploaded image side-by-side with the output.
 
-### 🧩 Algorithms Supported
-1. **Sobel Operator**
-   - Detects gradients in X, Y, or both directions.  
-   - Adjustable **kernel size**.
-2. **Laplacian Operator**
-   - Detects intensity changes using the Laplacian of the image.  
-   - Adjustable **kernel size**.
-3. **Canny Edge Detection**
-   - Multi-stage algorithm using Gaussian blur + gradient detection.  
-   - Adjustable **lower/upper thresholds**, **kernel size**, and **sigma**.
-
-### ⚙️ Parameter Controls
-- Real-time interactive sliders and dropdowns for:
-  - Canny: `lower`, `upper`, `ksize`, `sigma`
-  - Sobel: `ksize`, `direction (X, Y, Both)`
-  - Laplacian: `ksize`
-- Parameters update live or via an **“Apply” button**.
+---
 
 ### 🖥️ User Interface
 - Clean, minimal UI using **shadcn/ui**, **Lucide React icons**, and **Tailwind CSS**.  
@@ -85,20 +69,23 @@ Visit: [http://localhost:3000](http://localhost:3000)
 ## 📂 Folder Structure
 
 ```
-edge-detection-nextjs/
-│
-├── public/                # Static assets (sample images, icons)
+edge-detection-reactjs/
 ├── src/
 │   ├── components/
-│   │   ├── EdgeDetection.tsx
-│   │   ├── Controls.tsx
-│   │   └── ImageDisplay.tsx
+│   │   ├── ui/            # UI componenets from shadcn
+│   │   ├── FileUploadCard.tsx    # File upload functionality
+│   │   ├── EdgeDetection.tsx     # Contains the algorithms for edge detection
+│   │   ├── Controls.tsx          # Contains the controls like slider and radio button
+│   │   └── ImageDisplay.tsx      # Contains the Input Image and Output Image Component
 │   ├── hooks/
-│   │   └── useOpenCV.ts
+│   │   └── useOpenCV.ts          # Enables the use of OpenCV.js
+│   ├── lib/
+│   │   └── util.ts               # Utility for shadcn
 │   ├── types/
-│   │   └── types.ts
-│   └── app/
-│       └── page.tsx
+│   │   └── types.ts              # Contains the types for typescript
+│   ├── App.tsx                   # Starts the App and Calls the EdgeDetection Component
+│   ├── main.tsx                  # Injects the React app to the html page
+│   └── index.css                 # Contains the CSS variables for tailwind css
 │
 ├── package.json
 └── README.md
@@ -147,6 +134,3 @@ Uses the second derivative of the image to detect rapid intensity changes.
 **Government College University, Lahore**
 
 ---
-
-
-
