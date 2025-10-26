@@ -8,10 +8,10 @@ export default function FileUploadCard({
 }) {
   return (
     <Card
-      className="flex flex-col items-center justify-center gap-2 border-dashed border-2 border-primary/50 px-6 py-8 text-center hover:border-primary/70 hover:bg-muted/50 transition cursor-pointer"
+      className="flex flex-col items-center justify-center gap-2 border-dashed border-2 border-primary/50 px-6 py-4 text-center hover:border-primary hover:scale-101 hover:shadow-md transition-all duration-300 w-[300px] rounded-3xl cursor-pointer"
       onClick={() => document.getElementById("fileInput")?.click()}
     >
-      <ImagePlus className="w-8 h-8 text-primary/80" />
+      <ImagePlus className="w-8 h-8 text-primary" />
       <p className="text-sm text-muted-foreground">Click to upload an image</p>
       <input
         id="fileInput"

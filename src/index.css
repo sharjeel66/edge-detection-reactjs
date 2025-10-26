@@ -1,8 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
 @theme inline {
   /* Radius Sizes */
   --radius-sm: calc(var(--radius) - 4px);
@@ -65,26 +63,26 @@
   --radius: 0.625rem;
 
   /* Base */
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --background: oklch(92.284% 0.02357 240.225);
+  --foreground: oklch(18.353% 0.05026 238.874);
 
   /* Components */
-  --card: oklch(1 0 0);
+  --card: oklch(95.284% 0.02357 240.225);
   --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
+  --popover: oklch(94.284% 0.02357 240.225);
   --popover-foreground: oklch(0.145 0 0);
 
   /* Primary & Secondary */
-  --primary: oklch(0.205 0 0);
+  --primary: oklch(59.055% 0.21139 257.214);
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
 
   /* Muted / Accent / Destructive */
   --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --muted-foreground: oklch(56.686% 0.03429 277.131);
+  --accent: oklch(59.055% 0.21139 257.214);
+  --accent-foreground: oklch(97.614% 0.00011 271.152);
   --destructive: oklch(0.577 0.245 27.325);
 
   /* Border / Input / Ring */
@@ -111,56 +109,6 @@
 }
 
 /* 
-  Dark Theme
- */
-.dark {
-  /* Base */
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-
-  /* Components */
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-
-  /* Primary & Secondary */
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-
-  /* Muted / Accent / Destructive */
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-
-  /* Border / Input / Ring */
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-
-  /* Charts */
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-
-  /* Sidebar */
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
-}
-
-/* 
   Base Layer Styles
  */
 @layer base {
@@ -170,5 +118,50 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: "Poppins", sans-serif;
+  }
+}
+
+/* Animated gradient layer */
+.hero-bg::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  z-index: -1;
+  background: radial-gradient(
+    circle at 50% 50%,
+    #ff6b6b 0%,
+    #5f27cd 40%,
+    #48dbfb 80%
+  );
+  background-size: 160% 160%;
+  filter: blur(150px);
+  opacity: 0.8;
+  transform-origin: center;
+  animation: move 5s ease-in-out infinite alternate, spin 3s linear infinite;
+}
+
+/* Gentle motion */
+@keyframes move {
+  0% {
+    background-position: 30% 40%;
+    transform: scale(1);
+  }
+  50% {
+    background-position: 70% 60%;
+    transform: scale(1.05);
+  }
+  100% {
+    background-position: 30% 40%;
+    transform: scale(1);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

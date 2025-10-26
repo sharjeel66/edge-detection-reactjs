@@ -23,10 +23,7 @@ const Controls = ({
   onParamsChange,
 }: ControlProps) => {
   return (
-    <div
-      className="flex flex-col gap-6 w-full max-w-sm px-5 py-4 border
-    border-border rounded-xl shadow-md bg-card"
-    >
+    <div className="flex flex-col gap-6 w-full max-w-[320px] px-6 py-8 rounded-3xl shadow-none bg-card">
       {/* Algorithm Selection */}
       <div className="flex flex-col gap-3">
         <Label className="text-md">Algorithm</Label>
@@ -34,7 +31,7 @@ const Controls = ({
           value={algorithm}
           onValueChange={(value) => onAlgorithmChange(value as AlgorithmType)}
         >
-          <SelectTrigger className="bg-primary/10 w-32">
+          <SelectTrigger className="border border-primary/30 w-32">
             <SelectValue placeholder="Select algorithm" />
           </SelectTrigger>
           <SelectContent>
@@ -48,7 +45,7 @@ const Controls = ({
       {/* Canny Parameters */}
       {algorithm === "Canny" && (
         <>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-3">
             <Label>Lower Threshold: {params.lower}</Label>
             <Slider
               min={0}
@@ -58,7 +55,7 @@ const Controls = ({
             />
           </div>
 
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-3">
             <Label>Upper Threshold: {params.upper}</Label>
             <Slider
               min={0}
@@ -68,7 +65,7 @@ const Controls = ({
             />
           </div>
 
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-3">
             <Label>Kernel Size: {params.ksize}</Label>
             <Slider
               min={1}
@@ -79,7 +76,7 @@ const Controls = ({
             />
           </div>
 
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-3">
             <Label>Sigma (Gaussian Blur): {params.sigma.toFixed(1)}</Label>
             <Slider
               min={0}
@@ -95,7 +92,7 @@ const Controls = ({
       {/* Sobel Parameters */}
       {algorithm === "Sobel" && (
         <>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-3">
             <Label>Kernel Size: {params.ksize}</Label>
             <Slider
               min={1}
@@ -106,7 +103,7 @@ const Controls = ({
             />
           </div>
 
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-3">
             <Label>Gradient Direction</Label>
             <RadioGroup
               className="flex gap-4"
@@ -134,7 +131,7 @@ const Controls = ({
 
       {/* Laplacian Parameters */}
       {algorithm === "Laplacian" && (
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-3">
           <Label>Kernel Size: {params.ksize}</Label>
           <Slider
             min={1}

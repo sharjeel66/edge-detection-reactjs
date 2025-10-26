@@ -102,48 +102,51 @@ const EdgeDetection = () => {
   };
 
   return (
-    <div className="p-8 flex flex-col gap-8 items-center">
-      <h1 className="text-3xl font-bold">Edge Detection</h1>
+    <div className="bg-background w-full">
+      <div className="p-8 flex flex-col gap-8 items-center">
+        <h1 className="mt-18 mb-6 text-4xl font-bold">Edge Detection</h1>
 
-      <FileUploadCard handleFileChange={handleFileChange} />
+        <FileUploadCard handleFileChange={handleFileChange} />
 
-      <ImageDisplay
-        inputRef={inputRef}
-        outputRef={outputRef}
-        imageSrc={imageSrc}
-      />
+        <ImageDisplay
+          inputRef={inputRef}
+          outputRef={outputRef}
+          imageSrc={imageSrc}
+        />
 
-      <Controls
-        algorithm={algorithm}
-        params={params}
-        onAlgorithmChange={setAlgorithm}
-        onParamsChange={setParams}
-      />
+        <Controls
+          algorithm={algorithm}
+          params={params}
+          onAlgorithmChange={setAlgorithm}
+          onParamsChange={setParams}
+        />
 
-      <Button
-        onClick={() => {
-          if (imageSrc) {
-            URL.revokeObjectURL(imageSrc);
-            setImageSrc(null);
-          }
-
-          if (inputRef.current) {
-            inputRef.current.src = "";
-          }
-
-          const canvas = outputRef.current;
-          if (canvas) {
-            const ctx = canvas.getContext("2d");
-            if (ctx) {
-              ctx.clearRect(0, 0, canvas.width, canvas.height);
+        <Button
+          className="rounded-full px-6 py-4 hover:cursor-pointer"
+          onClick={() => {
+            if (imageSrc) {
+              URL.revokeObjectURL(imageSrc);
+              setImageSrc(null);
             }
-            canvas.width = canvas.width;
-          }
-        }}
-        variant="destructive"
-      >
-        Clear
-      </Button>
+
+            if (inputRef.current) {
+              inputRef.current.src = "";
+            }
+
+            const canvas = outputRef.current;
+            if (canvas) {
+              const ctx = canvas.getContext("2d");
+              if (ctx) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+              }
+              canvas.width = canvas.width;
+            }
+          }}
+          variant="destructive"
+        >
+          Clear
+        </Button>
+      </div>
     </div>
   );
 };
