@@ -56,8 +56,10 @@ const EdgeDetection = () => {
         case "Canny":
           cv.Canny(gray, dst, params.lower, params.upper, params.ksize, true);
           break;
+
         case "Sobel": {
           const { direction = "Both", ksize } = params;
+
           if (direction === "X") {
             cv.Sobel(gray, dst, cv.CV_8U, 1, 0, ksize);
           } else if (direction === "Y") {
@@ -66,20 +68,20 @@ const EdgeDetection = () => {
             const gradX = new cv.Mat();
             const gradY = new cv.Mat();
 
-            // Compute gradients in float precision
-            cv.Sobel(gray, gradX, cv.CV_32F, 1, 0, ksize);
-            cv.Sobel(gray, gradY, cv.CV_32F, 0, 1, ksize);
+            cv.Sobel(gray, gradX, cv.CV_8U, 1, 0, ksize);
+            cv.Sobel(gray, gradY, cv.CV_8U, 0, 1, ksize);
 
-            // Compute magnitude
-            const magnitude = new cv.Mat();
-            cv.magnitude(gradX, gradY, magnitude);
+            const absX = new cv.Mat();
+            const absY = new cv.Mat();
+            cv.convertScaleAbs(gradX, absX);
+            cv.convertScaleAbs(gradY, absY);
 
-            // Normalize back to 8-bit range [0,255]
-            magnitude.convertTo(dst, cv.CV_8U);
+            cv.addWeighted(absX, 1, absY, 1, 0, dst);
 
             gradX.delete();
             gradY.delete();
-            magnitude.delete();
+            absX.delete();
+            absY.delete();
           }
           break;
         }

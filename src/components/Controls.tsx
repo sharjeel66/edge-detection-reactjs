@@ -1,5 +1,3 @@
-"use client";
-
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import {
@@ -31,7 +29,7 @@ const Controls = ({
           value={algorithm}
           onValueChange={(value) => onAlgorithmChange(value as AlgorithmType)}
         >
-          <SelectTrigger className="border border-primary/30 w-32">
+          <SelectTrigger className="border border-primary/60 w-32">
             <SelectValue placeholder="Select algorithm" />
           </SelectTrigger>
           <SelectContent>
