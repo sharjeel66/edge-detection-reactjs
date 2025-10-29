@@ -1,17 +1,37 @@
 import type { RefObject } from "react";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
+import { CircleX } from "lucide-react";
+import FileUploadCard from "./FileUploadCard";
 
 interface Props {
   inputRef: RefObject<HTMLImageElement | null>;
   outputRef: RefObject<HTMLCanvasElement | null>;
   imageSrc: string | null;
+  handleFileChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  clearFn: () => void;
 }
 
-const ImageDisplay = ({ inputRef, outputRef, imageSrc }: Props) => {
+const ImageDisplay = ({
+  inputRef,
+  outputRef,
+  imageSrc,
+  clearFn,
+  handleFileChange,
+}: Props) => {
   return (
-    <div className="grid w-[300px] md:w-full md:px-12 max-w-7xl sm:grid-cols-1 md:grid-cols-2 gap-8 justify-center">
-      <Card className="text-center border-none shadow-none gap-1 rounded-3xl">
-        <CardHeader className="text-xl">Input Image</CardHeader>
+    <div className="grid w-full max-w-7xl sm:grid-cols-1 md:grid-cols-2 gap-8 justify-center">
+      <Card className="text-center border-none shadow-none gap-1 rounded-3xl relative">
+        <CardHeader className="text-xl">
+          <FileUploadCard handleFileChange={handleFileChange} />
+          INPUT IMAGE
+          <div
+            className="hover:cursor-pointer absolute px-1 right-4"
+            onClick={clearFn}
+          >
+            {" "}
+            <CircleX />
+          </div>
+        </CardHeader>
         <CardContent>
           {imageSrc ? (
             <img
