@@ -19,7 +19,7 @@ const ImageDisplay = ({
   handleFileChange,
 }: Props) => {
   return (
-    <div className="grid w-full max-w-7xl sm:grid-cols-1 md:grid-cols-2 gap-8 justify-center">
+    <div className="grid w-full max-w-7xl grid-cols-1 md:grid-cols-2 gap-8 justify-center">
       <Card className="text-center border-none shadow-none gap-1 rounded-3xl relative">
         <CardHeader className="text-xl">
           <FileUploadCard handleFileChange={handleFileChange} />
