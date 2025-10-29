@@ -23,7 +23,7 @@ const ImageDisplay = ({
       <Card className="text-center border-none shadow-none gap-1 rounded-3xl relative">
         <CardHeader className="text-xl">
           <FileUploadCard handleFileChange={handleFileChange} />
-          INPUT IMAGE
+          Input Image
           <div
             className="hover:cursor-pointer absolute px-1 right-4"
             onClick={clearFn}
@@ -38,7 +38,7 @@ const ImageDisplay = ({
               ref={inputRef}
               src={imageSrc}
               alt="Input"
-              className="rounded-3xl w-full aspect-square object-cover"
+              className="mt-2 rounded-3xl w-full aspect-square object-cover"
             />
           ) : (
             <p className="text-sm text-muted-foreground">
